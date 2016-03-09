@@ -1,0 +1,7 @@
+#!/bin/sh
+cd /tmp
+wget http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-Modified.xml.gz
+gzip -d nvdcve-2.0-Modified.xml.gz
+
+cd /opt/nvd-mysql
+python nvdparse.py -H localhost -u root -p L0vejingjing -f /tmp/nvdcve-2.0-Modified.xml
