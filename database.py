@@ -18,8 +18,8 @@ CREATE_NVD = '''
     create table if not exists nvd(
       id int(11) not null auto_increment primary key,
       cve_id varchar(20),
-      published_datetime datetime,
-      last_modified_datetime datetime,
+      published_datetime varchar(30),
+      last_modified_datetime varchar(30),
       score float,
       access_vector varchar(45),
       access_complexity varchar(45),
@@ -28,7 +28,7 @@ CREATE_NVD = '''
       availability_impact varchar(45),
       integrity_impact varchar(45),
       source varchar(45),
-      generated_on_datetime datetime,
+      generated_on_datetime varchar(30),
       cwe_id varchar (20),
       summary text(65535)
     );
@@ -38,8 +38,8 @@ CREATE_REFERENCE = '''
         nvd_id int(11),
         type varchar(45),
         source varchar(45),
-        reference varchar(255),
-        url varchar(255)
+        reference varchar(1000),
+        url varchar(500)
     );
 '''
 CREATE_VULNERABLE = '''
